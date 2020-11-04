@@ -1,0 +1,12 @@
+[Unit]
+Description=MatchProcessDaemon OMGUSDT
+After=network.target
+
+[Service]
+ExecStart=/usr/bin/python2 /data/bitstorm/daemon/MatchProcess/MatchProcessDaemon.py --product=OMGUSDT
+
+User=centos
+Group=centos
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,12 @@
+[Unit]
+Description=xbitGetUpbitData
+After=network.target
+
+[Service]
+ExecStart=/usr/bin/python2 /data/xbit/daemon/Operation/xbitGetUpbitData.py
+
+User=root
+Group=root
+
+[Install]
+WantedBy=multi-user.target

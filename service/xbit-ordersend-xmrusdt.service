@@ -1,0 +1,12 @@
+[Unit]
+Description=xbitOrdersend XMRUSDT
+After=network.target
+
+[Service]
+ExecStart=/usr/bin/python2 /data/bitstorm/daemon/Operation/xbitOrdersend.py --product=XMRUSDT
+
+User=centos
+Group=centos
+
+[Install]
+WantedBy=multi-user.target

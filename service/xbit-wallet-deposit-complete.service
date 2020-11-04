@@ -1,0 +1,12 @@
+[Unit]
+Description=Wallet Deposit Complete Daemon
+After=network.target
+
+[Service]
+ExecStart=/usr/bin/python2 /data/xbit/daemon/Operation/WalletDepositCompleteDaemon.py
+
+User=root
+Group=root
+
+[Install]
+WantedBy=multi-user.target

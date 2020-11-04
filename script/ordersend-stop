@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+systemctl stop xbit-ordersend-btcbxb.service
+systemctl stop xbit-ordersend-btceth.service
+systemctl stop xbit-ordersend-bxbusd.service
+systemctl stop xbit-ordersend-ethbxb.service
+systemctl stop xbit-ordersend-btcusd.service
+systemctl stop xbit-ordersend-ethusd.service

@@ -1,0 +1,12 @@
+[Unit]
+Description=xbitEmailSend
+After=network.target
+
+[Service]
+ExecStart=/usr/bin/python2 /data/xbit/daemon/Operation/xbitEmailSend.py
+
+User=root
+Group=root
+
+[Install]
+WantedBy=multi-user.target

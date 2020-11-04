@@ -1,0 +1,12 @@
+[Unit]
+Description=Wallet Withdraw Request Daemon
+After=network.target
+
+[Service]
+ExecStart=/usr/bin/python2 /data/xbit/daemon/Operation/WalletWithdrawRequestDaemon.py
+
+User=root
+Group=root
+
+[Install]
+WantedBy=multi-user.target

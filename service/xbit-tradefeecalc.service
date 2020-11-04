@@ -1,0 +1,12 @@
+[Unit]
+Description=Trade Fee Calc
+After=network.target
+
+[Service]
+ExecStart=/usr/bin/python2 /data/bitstorm/daemon/Operation/TradeFeeCalc.py
+
+User=centos
+Group=centos
+
+[Install]
+WantedBy=multi-user.target

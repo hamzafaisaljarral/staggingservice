@@ -1,0 +1,12 @@
+[Unit]
+Description=xbitOrdersend DASHUSDT
+After=network.target
+
+[Service]
+ExecStart=/usr/bin/python2 /data/bitstorm/daemon/Operation/xbitOrdersend.py --product=DASHUSDT
+
+User=centos
+Group=centos
+
+[Install]
+WantedBy=multi-user.target

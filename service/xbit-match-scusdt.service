@@ -1,0 +1,12 @@
+[Unit]
+Description=MatchProcessDaemon SCUSDT
+After=network.target
+
+[Service]
+ExecStart=/usr/bin/python2 /data/bitstorm/daemon/MatchProcess/MatchProcessDaemon.py --product=SCUSDT
+
+User=centos
+Group=centos
+
+[Install]
+WantedBy=multi-user.target

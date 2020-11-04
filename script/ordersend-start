@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+systemctl start xbit-ordersend-btcbxb.service
+systemctl start xbit-ordersend-btceth.service
+systemctl start xbit-ordersend-bxbusd.service
+systemctl start xbit-ordersend-ethbxb.service
+systemctl start xbit-ordersend-btcusd.service
+systemctl start xbit-ordersend-ethusd.service

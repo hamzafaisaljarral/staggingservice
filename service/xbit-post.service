@@ -1,0 +1,12 @@
+[Unit]
+Description=PostProcessDaemon
+After=network.target
+
+[Service]
+ExecStart=/usr/bin/python2 /data/bitstorm/daemon/PostProcess/PostProcessDaemon.py
+
+User=centos
+Group=centos
+
+[Install]
+WantedBy=multi-user.target

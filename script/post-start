@@ -1,0 +1,55 @@
+#!/bin/python
+# -*- encoding:utf8 -*-
+import os, sys, time
+
+FILENAME = os.path.abspath(__file__)
+FILE_DIRECTORY = os.path.dirname(FILENAME)
+BASE_DIRECTORY = os.path.abspath(os.path.join(FILE_DIRECTORY, '..'))
+
+
+class Main:
+    bin_directory = os.path.join(BASE_DIRECTORY, 'bin')
+    run_directory = os.path.join(BASE_DIRECTORY, 'run')
+
+    def __init__(self):
+        daemons = [
+            ('xbit-post.service', 'xbit-post.pid',),
+        ]
+        for service, pidfile in daemons:
+            # process start
+            cmd = 'systemctl start %s' % (service,)
+            sys.stdout.write(cmd + ' ')
+            sys.stdout.flush()
+            os.system(cmd)
+
+            # pid check
+            pid = self.getpid(pidfile=os.path.join(self.run_directory, pidfile))
+            while not self.isalive(pid=pid):
+                sys.stdout.write('.')
+                sys.stdout.flush()
+                pid = self.getpid(pidfile=os.path.join(self.run_directory, pidfile))
+                time.sleep(0.1)
+            sys.stdout.write('OK\n')
+            sys.stdout.flush()
+
+    def isalive(self, pid):
+        r = os.popen('ps %s' % (pid,))
+        if len(r.readlines()) >= 2:
+            return True
+        else:
+            return False
+
+    def getpid(self, pidfile):
+        try:
+            with open(pidfile, 'r') as f:
+                pid = f.read()
+            return pid
+        except IOError:
+            return None
+
+
+if __name__ == '__main__':
+    if os.getuid() != 0:  # 관리자 권한으로 실행되는지 확인
+        print 'Permission denied :$ sudo {manager}'.format(manager=os.path.basename(__file__))
+        exit(1)
+    Main()

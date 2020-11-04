@@ -1,0 +1,12 @@
+[Unit]
+Description=MatchProcessDaemon BTCUSDT
+After=network.target
+
+[Service]
+ExecStart=/usr/bin/python2 /data/bitstorm/daemon/MatchProcess/MatchProcessDaemon.py --product=BTCUSDT
+
+User=centos
+Group=centos
+
+[Install]
+WantedBy=multi-user.target
